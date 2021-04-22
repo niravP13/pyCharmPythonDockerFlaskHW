@@ -3,25 +3,32 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">City Name</th>
-        <th scope="col">Latitude</th>
-        <th scope="col">Longitude</th>
-        <th scope="col">Country</th>
-        <th scope="col">Abbreviation</th>
-        <th scope="col">Capital Status</th>
-        <th scope="col">Population</th>
+        <th scope="col">Last_name</th>
+        <th scope="col">First_name</th>
+        <th scope="col">SSN</th>
+        <th scope="col">Test1</th>
+        <th scope="col">Test2</th>
+        <th scope="col">Test3</th>
+        <th scope="col">Test4</th>
+        <th scope="col">Final</th>
+        <th scope="col">Grade</th>
+
     </tr>
     </thead>
     <tbody>
-    {% for city in cities %}
+    {% for grade in marks %}
     <tr>
-        <td><a href="view/{{city.id}}">{{ city.fldName }}</a></td>
-        <td>{{ city.fldLat }}</td>
-        <td>{{ city.fldLong }}</td>
-        <td>{{ city.fldCountry }}</td>
-        <td>{{ city.fldAbbreviation }}</td>
-        <td>{{ city.fldCapitalStatus }}</td>
-        <td>{{ city.fldPopulation }}</td>
+        <td><a href="view/{{grade.lname}}">{{ grade.lname }}</a></td>
+        <td>{{ grade.fname }}</td>
+        <td>{{ grade.ssn }}</td>
+        <td>{{ grade.test1 }}</td>
+        <td>{{ grade.test2 }}</td>
+        <td>{{ grade.test3 }}</td>
+        <td>{{ grade.test4 }}</td>
+        <td>{{ grade.final }}</td>
+        <td>{{ grade.grade }}</td>
+
+
     </tr>
     {% endfor %}
     </tbody>
