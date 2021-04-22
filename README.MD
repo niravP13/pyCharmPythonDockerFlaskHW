@@ -17,6 +17,8 @@ This project is a homework assignment to teach how to get Pycharm setup with Doc
 * Website Screenshot (Part 2)
 ![flask_app](screenshots/website.PNG)
   
+* Part3 screenshots are included in word file.
+  
   
 
   
