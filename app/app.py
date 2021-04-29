@@ -102,21 +102,46 @@ def api_retrieve(lname) -> str:
     return resp
 
 
-@app.route('/api/v1/marks/', methods=['POST'])
-def api_add() -> str:
-    resp = Response(status=201, mimetype='application/json')
-    return resp
-
-
 @app.route('/api/v1/marks/<string:lname>', methods=['PUT'])
 def api_edit(lname) -> str:
+    cursor = mysql.get_db().cursor()
+    content = request.json
+    inputData = (content['lname'], content['fname'], content['ssn'],
+                 content['test1'], content['test2'],
+                 content['test3'], content['test4'], content['final'],
+                 content['grade'],lname)
+    sql_update_query = """UPDATE sheet t SET t.lname = %s, t.fname = %s, t.ssn = %s, t.test1 = 
+        %s, t.test2 = %s, t.test3 = %s, t.test4 = %s, t.final = %s, t.grade = %s WHERE t.lname = %s """
+    cursor.execute(sql_update_query, inputData)
+    mysql.get_db().commit()
+    resp = Response(status=200, mimetype='application/json')
+    return resp
+
+
+@app.route('/api/v1/marks', methods=['POST'])
+def api_add() -> str:
+
+    content = request.json
+
+    cursor = mysql.get_db().cursor()
+    inputData = (content['lname'], content['fname'], content['ssn'],
+                 content['test1'], content['test2'],
+                 content['test3'], content['test4'], content['final'],
+                 request.form.get('grade'))
+    sql_insert_query = """INSERT INTO sheet (lname,fname,ssn,test1,test2,test3,test4,final,grade) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s) """
+    cursor.execute(sql_insert_query, inputData)
+    mysql.get_db().commit()
     resp = Response(status=201, mimetype='application/json')
     return resp
 
 
-@app.route('/api/marks/<string:lname>', methods=['DELETE'])
+@app.route('/api/v1/marks/<string:lname>', methods=['DELETE'])
 def api_delete(lname) -> str:
-    resp = Response(status=210, mimetype='application/json')
+    cursor = mysql.get_db().cursor()
+    sql_delete_query = """DELETE FROM sheet WHERE lname = %s """
+    cursor.execute(sql_delete_query, lname)
+    mysql.get_db().commit()
+    resp = Response(status=200, mimetype='application/json')
     return resp
 
 
