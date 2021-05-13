@@ -18,9 +18,10 @@
 
 ### Steps:
 * Clone the repository -
-
+https://github.com/niravP13/pyCharmPythonDockerFlaskHW/tree/final_web_app_feature
   
-* Go to the Final_Web_Application folder - 
+* Go to the pythonProject2 folder - 
+ cd pythonProject2 
 
   
 * Build and run the code - 
