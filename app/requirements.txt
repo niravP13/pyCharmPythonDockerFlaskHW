@@ -1,5 +1,5 @@
 Flask
-simplejson
-flask-mysql
-pymysql
 mysql-connector
+FLASK-MySQL
+pymysql
+simplejson

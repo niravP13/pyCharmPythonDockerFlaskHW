@@ -25,6 +25,26 @@ def index():
     return render_template('index.html', title='Home', user=user, marks=result)
 
 
+@app.route('/stats', methods=['GET'])
+def charts_view():
+    legend = 'Number of students with this Grade'
+    labels = []
+    cursor = mysql.get_db().cursor()
+    cursor.execute('SELECT grade FROM sheet group by grade')
+    for temp in cursor.fetchall():
+        labels.append(list(temp.values())[0])
+    labels = [i.replace('"', '') for i in labels]
+    values = []
+    values.append(0)
+    cursor.execute('SELECT COUNT(*) FROM sheet group by grade')
+    for temp in cursor.fetchall():
+        values.append(list(temp.values())[0])
+    result = cursor.fetchall()
+    return render_template('chart.html', title='Home', player=result, student_labels=labels,
+                           student_legend=legend,
+                           student_values=values)
+
+
 @app.route('/view/<string:lname>', methods=['GET'])
 def record_view(lname):
     cursor = mysql.get_db().cursor()
