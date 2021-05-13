@@ -1,24 +1,30 @@
-# Project Description
-This project is a homework assignment to teach how to get Pycharm setup with Docker, Flask, MySQL, and Postman
+# Final Web Application
 
-[Download Assignment PDF Here](PPFSQL-Homework.pdf)
+## Project By
+ Nirav Patel
 
-[View Assignment Video Here](https://youtu.be/QbMWNgrfAFg)
+## Project feature
 
+* Created API endpoints and from those endpoints created Charts of the available data using a Chart.js in Javascript.
+* Click on Class Stats (the Green button on top).
+* Upon clicking, the page will display the Count of Students according to their grades.
+* As long as the new data is added, the statistics will change.
+* To view this feature working step by step [Click Here](Final Web Application.pdf). 
 
+# Installation instructions
+### Prerequisites:
+* Port 5000 and 3200 are open to use in system.
+* Docker is installed and running.
 
-# Submission Requirements:
-* SQL Data Screenshot(Part 1)
-![pycharm data query](screenshots/query.png)
-  
-* Postman Screenshot (Part 1)
-![postman request output](screenshots/postman.png)
-
-* Website Screenshot (Part 2)
-![flask_app](screenshots/website.PNG)
-  
-* Part3 screenshots are included in word file.
-  
-  
+### Steps:
+* Clone the repository -
 
   
+* Go to the Final_Web_Application folder - 
+
+  
+* Build and run the code - 
+`docker-compose up`
+  
+* It will start and run with MYSQL and Flask App and then open a browser and paste below URL - 
+`http://localhost:5000/`
